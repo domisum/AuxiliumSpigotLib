@@ -1,5 +1,6 @@
 package de.domisum.lib.auxiliumspigot.util;
 
+import de.domisum.lib.auxilium.data.container.math.Vector3D;
 import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -136,6 +137,14 @@ public class LocationUtil
 		int chunkZ = location.getBlockZ()>>4;
 
 		return location.getWorld().isChunkLoaded(chunkX, chunkZ);
+	}
+
+
+	// CONVERSION
+	@APIUsage
+	public static Vector3D toVector3D(Location location)
+	{
+		return new Vector3D(location.getX(), location.getY(), location.getZ());
 	}
 
 }
