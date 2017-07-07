@@ -1,4 +1,5 @@
 package de.domisum.lib.auxiliumspigot;
+
 import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
 import de.domisum.lib.auxiliumspigot.data.structure.pds.PlayerDataStructureListener;
 import de.domisum.lib.auxiliumspigot.monitor.PlayerVelocityMonitorManager;
@@ -23,23 +24,20 @@ public class AuxiliumSpigotLib
 	// -------
 	private AuxiliumSpigotLib(Plugin plugin)
 	{
-		instance = this;
 		this.plugin = plugin;
 
 		onEnable();
 	}
 
-	@APIUsage
-	public static void enable(Plugin plugin)
+	@APIUsage public static void enable(Plugin plugin)
 	{
 		if(instance != null)
 			return;
 
-		new AuxiliumSpigotLib(plugin);
+		instance = new AuxiliumSpigotLib(plugin);
 	}
 
-	@APIUsage
-	public static void disable()
+	@APIUsage public static void disable()
 	{
 		if(instance == null)
 			return;
@@ -65,8 +63,7 @@ public class AuxiliumSpigotLib
 	// -------
 	// GETTERS
 	// -------
-	@APIUsage
-	public static AuxiliumSpigotLib getInstance()
+	@APIUsage public static AuxiliumSpigotLib getInstance()
 	{
 		if(instance == null)
 			throw new IllegalArgumentException(AuxiliumSpigotLib.class.getSimpleName()+" has to be initialized before usage");
