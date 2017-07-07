@@ -92,9 +92,8 @@ public class AbstractItemStack
 		ItemMeta itemMeta = itemStack.getItemMeta();
 		if(this.displayName != null)
 			itemMeta.setDisplayName(this.displayName);
-		if(this.lore != null)
-			if(!this.lore.isEmpty())
-				itemMeta.setLore(this.lore);
+		if(this.lore != null && !this.lore.isEmpty())
+			itemMeta.setLore(this.lore);
 
 		if(this.material == Material.POTION && this.potionEffect != null)
 			this.potionEffect.applyTo((PotionMeta) itemMeta);
