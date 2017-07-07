@@ -25,7 +25,7 @@ public class PlayerVelocityMonitor
 
 
 	// CONSTRUCTOR
-	PlayerVelocityMonitor(Player player)
+	protected PlayerVelocityMonitor(Player player)
 	{
 		this.player = player;
 	}
@@ -49,7 +49,7 @@ public class PlayerVelocityMonitor
 		return this.playerVelocity.clone();
 	}
 
-	Player getPlayer()
+	protected Player getPlayer()
 	{
 		return this.player;
 	}
@@ -72,13 +72,13 @@ public class PlayerVelocityMonitor
 
 
 	// UPDATE
-	void updatePlayerVelocity(Vector velocity)
+	protected void updatePlayerVelocity(Vector velocity)
 	{
 		this.playerVelocity = velocity;
 		this.lastMove = System.currentTimeMillis();
 	}
 
-	void tick()
+	protected void tick()
 	{
 		this.lastTick = System.currentTimeMillis();
 
