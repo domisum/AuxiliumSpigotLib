@@ -24,32 +24,25 @@ public class PlayerVelocityMonitor
 	private long lastCheck = System.currentTimeMillis();
 
 
-	// -------
 	// CONSTRUCTOR
-	// -------
 	PlayerVelocityMonitor(Player player)
 	{
 		this.player = player;
 	}
 
-	@APIUsage
-	public void terminate()
+	@APIUsage public void terminate()
 	{
 		this.terminated = true;
 	}
 
 
-	// -------
 	// GETTERS
-	// -------
-	@APIUsage
-	public boolean isTooYoung()
+	@APIUsage public boolean isTooYoung()
 	{
 		return (this.lastTick == 0) && (this.lastMove == 0);
 	}
 
-	@APIUsage
-	public Vector getVelocity()
+	@APIUsage public Vector getVelocity()
 	{
 		this.lastCheck = System.currentTimeMillis();
 
@@ -61,14 +54,12 @@ public class PlayerVelocityMonitor
 		return this.player;
 	}
 
-	@APIUsage
-	public boolean isTerminated()
+	@APIUsage public boolean isTerminated()
 	{
 		return this.terminated;
 	}
 
-	@APIUsage
-	public boolean isTimedOut()
+	@APIUsage public boolean isTimedOut()
 	{
 		return (this.lastCheck+TIMEOUT_DURATION_MS) < System.currentTimeMillis();
 	}
@@ -80,9 +71,7 @@ public class PlayerVelocityMonitor
 	}
 
 
-	// -------
 	// UPDATE
-	// -------
 	void updatePlayerVelocity(Vector velocity)
 	{
 		this.playerVelocity = velocity;
