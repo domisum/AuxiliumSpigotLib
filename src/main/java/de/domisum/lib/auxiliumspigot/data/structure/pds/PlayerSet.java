@@ -4,6 +4,7 @@ import de.domisum.lib.auxiliumspigot.AuxiliumSpigotLib;
 import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
 @APIUsage
@@ -20,8 +21,7 @@ public class PlayerSet extends HashSet<Player> implements PlayerDataStructure
 	{
 		this();
 
-		for(Player p : players)
-			add(p);
+		this.addAll(Arrays.asList(players));
 	}
 
 

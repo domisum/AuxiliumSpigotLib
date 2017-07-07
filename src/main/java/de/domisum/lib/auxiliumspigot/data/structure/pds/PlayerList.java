@@ -5,6 +5,7 @@ import de.domisum.lib.auxiliumspigot.AuxiliumSpigotLib;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 @APIUsage
 public class PlayerList extends ArrayList<Player> implements PlayerDataStructure
@@ -20,8 +21,7 @@ public class PlayerList extends ArrayList<Player> implements PlayerDataStructure
 	{
 		this();
 
-		for(Player p : players)
-			add(p);
+		this.addAll(Arrays.asList(players));
 	}
 
 
