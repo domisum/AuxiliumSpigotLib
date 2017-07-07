@@ -25,9 +25,7 @@ public class PlayerVelocityMonitorManager implements Listener
 	private BukkitTask updateTask;
 
 
-	// -------
 	// CONSTRUCTOR
-	// -------
 	public PlayerVelocityMonitorManager()
 	{
 		registerListener();
@@ -40,11 +38,8 @@ public class PlayerVelocityMonitorManager implements Listener
 	}
 
 
-	// -------
 	// REGISTRATION
-	// -------
-	@APIUsage
-	public static PlayerVelocityMonitor getFor(Player player)
+	@APIUsage public static PlayerVelocityMonitor getFor(Player player)
 	{
 		PlayerVelocityMonitorManager pvmm = AuxiliumSpigotLib.getPlayerVelocityMonitorManager();
 		if(pvmm.playerVelocityMonitors.containsKey(player))
@@ -58,9 +53,7 @@ public class PlayerVelocityMonitorManager implements Listener
 	}
 
 
-	// -------
 	// UPDATE
-	// -------
 	private void startUpdateTask()
 	{
 		if(this.updateTask != null)
@@ -97,11 +90,8 @@ public class PlayerVelocityMonitorManager implements Listener
 	}
 
 
-	// -------
 	// EVENTS
-	// -------
-	@EventHandler
-	public void playerMove(PlayerMoveEvent event)
+	@EventHandler public void playerMove(PlayerMoveEvent event)
 	{
 		Player player = event.getPlayer();
 
