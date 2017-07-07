@@ -28,7 +28,7 @@ public class AbstractItemStack
 	@SetByDeserialization private AbstractPotionEffect potionEffect;
 
 
-	// CONSTRUCTOR
+	// INIT
 	@DeserializationNoArgsConstructor public AbstractItemStack()
 	{
 

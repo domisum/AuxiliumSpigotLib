@@ -1,7 +1,7 @@
 package de.domisum.lib.auxiliumspigot.util.player;
 
-import de.domisum.lib.auxiliumspigot.util.ReflectionUtil;
 import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxiliumspigot.util.ReflectionUtil;
 import net.minecraft.server.v1_9_R1.EntityLiving;
 import net.minecraft.server.v1_9_R1.EntityPlayer;
 import org.bukkit.craftbukkit.v1_9_R1.entity.CraftLivingEntity;
@@ -23,8 +23,7 @@ public class PlayerUtil
 
 	// MANIPULATION
 	// inventory
-	@APIUsage
-	public static void clear(Player player)
+	@APIUsage public static void clear(Player player)
 	{
 		player.getInventory().clear();
 		player.getInventory().setArmorContents(null);
@@ -42,8 +41,7 @@ public class PlayerUtil
 		removeArrows(player);
 	}
 
-	@APIUsage
-	public static void removeItemStacksFromInventory(Player player, Collection<ItemStack> itemStacksToRemove)
+	@APIUsage public static void removeItemStacksFromInventory(Player player, Collection<ItemStack> itemStacksToRemove)
 	{
 		ItemStack[] contents = player.getInventory().getContents();
 		for(int i = 0; i < contents.length; i++)
@@ -65,8 +63,7 @@ public class PlayerUtil
 
 
 	// appearance
-	@APIUsage
-	public static void removeArrows(Player player)
+	@APIUsage public static void removeArrows(Player player)
 	{
 		// reflection makes this plugin compatible with multiple versions
 
@@ -90,8 +87,7 @@ public class PlayerUtil
 
 
 	// health and death status
-	@APIUsage
-	public static void respawn(Player player)
+	@APIUsage public static void respawn(Player player)
 	{
 		try
 		{
@@ -129,8 +125,7 @@ public class PlayerUtil
 		}
 	}
 
-	@APIUsage
-	public static void heal(Player player, double health)
+	@APIUsage public static void heal(Player player, double health)
 	{
 		if(health <= 0)
 			return;
@@ -143,14 +138,12 @@ public class PlayerUtil
 
 
 	// DAMAGING
-	@APIUsage
-	public static void causeDamage(Player player, LivingEntity target, double damage)
+	@APIUsage public static void causeDamage(Player player, LivingEntity target, double damage)
 	{
 		causeDamage(player, ((CraftLivingEntity) target).getHandle(), damage);
 	}
 
-	@APIUsage
-	public static void causeDamage(Player player, EntityLiving target, double damage)
+	@APIUsage public static void causeDamage(Player player, EntityLiving target, double damage)
 	{
 		// unsure if this works
 		// have to do this in this manner, because

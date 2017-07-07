@@ -20,7 +20,7 @@ public class AbstractPotionEffect
 	private PotionEffectType type_;
 
 
-	// CONSTRUCTOR
+	// INIT
 	@DeserializationNoArgsConstructor public AbstractPotionEffect()
 	{
 

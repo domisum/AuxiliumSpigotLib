@@ -26,8 +26,7 @@ public class BlockUtil
 	 * @param data     the subId
 	 * @see #setMaterialAndData(Block, Material, byte, boolean)
 	 */
-	@APIUsage
-	public static void setMaterialAndData(Block block, Material material, byte data)
+	@APIUsage public static void setMaterialAndData(Block block, Material material, byte data)
 	{
 		setMaterialAndData(block, material, data, false);
 	}
@@ -44,9 +43,8 @@ public class BlockUtil
 	 * @param data     the subId
 	 * @param physics  whether a physics update should be triggered
 	 */
-	@SuppressWarnings("deprecation")
-	@APIUsage
-	public static void setMaterialAndData(Block block, Material material, byte data, boolean physics)
+	@SuppressWarnings("deprecation") @APIUsage public static void setMaterialAndData(Block block, Material material, byte data,
+			boolean physics)
 	{
 		block.setTypeIdAndData(material.getId(), data, physics);
 	}

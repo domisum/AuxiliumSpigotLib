@@ -23,8 +23,7 @@ public class AbstractBlock
 	/*
 	// INITIALIZATION
 	*/
-	@DeserializationNoArgsConstructor
-	public AbstractBlock()
+	@DeserializationNoArgsConstructor public AbstractBlock()
 	{
 		this.material = null;
 		this.data = 0;
@@ -34,28 +33,24 @@ public class AbstractBlock
 	 * @param material The material of the block
 	 * @param data     the subId of the block
 	 */
-	@APIUsage
-	public AbstractBlock(Material material, byte data)
+	@APIUsage public AbstractBlock(Material material, byte data)
 	{
 		this.material = material;
 		this.data = data;
 	}
 
 
-	@APIUsage
-	public AbstractBlock(World world, BlockCoordinate blockCoordinate)
+	@APIUsage public AbstractBlock(World world, BlockCoordinate blockCoordinate)
 	{
 		this(world.getBlockAt(blockCoordinate.x, blockCoordinate.y, blockCoordinate.z));
 	}
 
-	@APIUsage
-	public AbstractBlock(World world, int x, int y, int z)
+	@APIUsage public AbstractBlock(World world, int x, int y, int z)
 	{
 		this(world.getBlockAt(x, y, z));
 	}
 
-	@APIUsage
-	public AbstractBlock(Block block)
+	@APIUsage public AbstractBlock(Block block)
 	{
 		this.material = block.getType();
 		//noinspection deprecation

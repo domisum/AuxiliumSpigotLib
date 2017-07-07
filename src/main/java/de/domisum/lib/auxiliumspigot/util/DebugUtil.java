@@ -11,14 +11,12 @@ import java.util.logging.Level;
 public class DebugUtil
 {
 
-	@APIUsage
-	public static void say(Object message)
+	@APIUsage public static void say(Object message)
 	{
 		say(message+"");
 	}
 
-	@APIUsage
-	public static void say(String message)
+	@APIUsage public static void say(String message)
 	{
 		String formattedMessage = "[DEBUG] "+message;
 

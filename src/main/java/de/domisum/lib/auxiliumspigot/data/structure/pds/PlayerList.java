@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class PlayerList extends ArrayList<Player> implements PlayerDataStructure
 {
 
-	// CONSTRUCTOR
+	// INIT
 	@APIUsage public PlayerList()
 	{
 		AuxiliumSpigotLib.getPlayerDataStructureListener().registerPlayerDataStructure(this);

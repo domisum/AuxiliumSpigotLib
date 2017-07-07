@@ -11,8 +11,7 @@ import org.bukkit.entity.Player;
 public class MessagingUtil
 {
 
-	@APIUsage
-	public static void sendActionBarMessage(String message, Player... players)
+	@APIUsage public static void sendActionBarMessage(String message, Player... players)
 	{
 		IChatBaseComponent cbc = ChatSerializer.a("{\"text\": \""+message+"\"}");
 		PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, (byte) 2);
@@ -22,8 +21,7 @@ public class MessagingUtil
 	}
 
 
-	@APIUsage
-	public static void sendStatusMessage(Player player, String message)
+	@APIUsage public static void sendStatusMessage(Player player, String message)
 	{
 		player.sendMessage(ChatColor.GRAY.toString()+ChatColor.ITALIC+"["+message+"]");
 	}

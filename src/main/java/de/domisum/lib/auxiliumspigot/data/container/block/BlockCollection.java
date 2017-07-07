@@ -22,33 +22,25 @@ public class BlockCollection
 	private Map<BlockCoordinate, AbstractBlock> blocks = new HashMap<>();
 
 
-	// -------
-	// CONSTRUCTOR
-	// -------
-	@APIUsage
-	public BlockCollection()
+	// INIT
+	@APIUsage public BlockCollection()
 	{
 
 	}
 
-	@APIUsage
-	public BlockCollection(Map<BlockCoordinate, AbstractBlock> blocks)
+	@APIUsage public BlockCollection(Map<BlockCoordinate, AbstractBlock> blocks)
 	{
 		this.blocks = blocks;
 	}
 
 
-	// -------
 	// GETTERS
-	// -------
-	@APIUsage
-	public Map<BlockCoordinate, AbstractBlock> getBlocks()
+	@APIUsage public Map<BlockCoordinate, AbstractBlock> getBlocks()
 	{
 		return this.blocks;
 	}
 
-	@APIUsage
-	public AbstractBlock get(BlockCoordinate coordinate)
+	@APIUsage public AbstractBlock get(BlockCoordinate coordinate)
 	{
 		AbstractBlock block = this.blocks.get(coordinate);
 		if(block != null)
@@ -57,15 +49,13 @@ public class BlockCollection
 		return DEFAULT_BLOCK;
 	}
 
-	@APIUsage
-	public boolean isSet(BlockCoordinate coordinate)
+	@APIUsage public boolean isSet(BlockCoordinate coordinate)
 	{
 		return this.blocks.containsKey(coordinate);
 	}
 
 
-	@APIUsage
-	public Duo<BlockCoordinate, BlockCoordinate> getBounds()
+	@APIUsage public Duo<BlockCoordinate, BlockCoordinate> getBounds()
 	{
 		int minX = Integer.MAX_VALUE;
 		int minY = Integer.MAX_VALUE;
@@ -103,11 +93,8 @@ public class BlockCollection
 	}
 
 
-	// -------
 	// SETTERS
-	// -------
-	@APIUsage
-	public void set(BlockCoordinate coordinate, AbstractBlock block)
+	@APIUsage public void set(BlockCoordinate coordinate, AbstractBlock block)
 	{
 		if(block == null)
 		{
@@ -118,20 +105,15 @@ public class BlockCollection
 		this.blocks.put(coordinate, block);
 	}
 
-	@APIUsage
-	public void set(BlockCollection blockCollection)
+	@APIUsage public void set(BlockCollection blockCollection)
 	{
 		for(Entry<BlockCoordinate, AbstractBlock> entry : blockCollection.blocks.entrySet())
 			this.blocks.put(entry.getKey(), entry.getValue());
 	}
 
 
-	// -------
 	// BUILDING
-	// -------
-	@SuppressWarnings("deprecation")
-	@APIUsage
-	public void buildAt(Location location)
+	@SuppressWarnings("deprecation") @APIUsage public void buildAt(Location location)
 	{
 		Map<BlockCoordinate, AbstractBlock> fragileBlocks = new HashMap<>();
 

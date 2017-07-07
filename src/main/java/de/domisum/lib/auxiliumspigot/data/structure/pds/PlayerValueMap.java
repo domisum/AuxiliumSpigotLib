@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class PlayerValueMap<T> extends HashMap<T, Player> implements PlayerDataStructure
 {
 
-	// CONSTRUCTOR
+	// INIT
 	@APIUsage public PlayerValueMap()
 	{
 		AuxiliumSpigotLib.getPlayerDataStructureListener().registerPlayerDataStructure(this);

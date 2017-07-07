@@ -35,7 +35,7 @@ public class PlayerCausedExplosion implements Listener
 	private boolean damageSelf = true;
 
 
-	// CONSTRUCTOR
+	// INIT
 	@APIUsage public PlayerCausedExplosion(Location location, Player player)
 	{
 		this.location = location;

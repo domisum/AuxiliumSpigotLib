@@ -15,23 +15,17 @@ public class AbstractPlayerInventory
 {
 
 	// PROPERTIES
-	@SetByDeserialization
-	private HashMap<Integer, AbstractItemStack> items = new HashMap<>();
-	@SetByDeserialization
-	private int heldItemSlot;
+	@SetByDeserialization private HashMap<Integer, AbstractItemStack> items = new HashMap<>();
+	@SetByDeserialization private int heldItemSlot;
 
 
-	// -------
-	// CONSTRUCTOR
-	// -------
-	@DeserializationNoArgsConstructor
-	public AbstractPlayerInventory()
+	// INIT
+	@DeserializationNoArgsConstructor public AbstractPlayerInventory()
 	{
 
 	}
 
-	@APIUsage
-	public AbstractPlayerInventory(Player player)
+	@APIUsage public AbstractPlayerInventory(Player player)
 	{
 		PlayerInventory inventory = player.getInventory();
 
@@ -69,11 +63,8 @@ public class AbstractPlayerInventory
 	}
 
 
-	// -------
 	// INVENTORY
-	// -------
-	@APIUsage
-	public void applyTo(Player player)
+	@APIUsage public void applyTo(Player player)
 	{
 		PlayerInventory inventory = player.getInventory();
 

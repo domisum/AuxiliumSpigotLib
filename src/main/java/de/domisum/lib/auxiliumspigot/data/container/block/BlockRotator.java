@@ -7,8 +7,7 @@ import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
 public class BlockRotator
 {
 
-	@APIUsage
-	public static byte rotateWood(byte data, Axis axis)
+	@APIUsage public static byte rotateWood(byte data, Axis axis)
 	{
 		if(axis == Axis.Y)
 			return data;

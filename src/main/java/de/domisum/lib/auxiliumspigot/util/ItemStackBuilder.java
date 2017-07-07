@@ -42,7 +42,7 @@ public class ItemStackBuilder
 	private String skullOwner;
 
 
-	// CONSTRUCTOR
+	// INIT
 
 	/**
 	 * Creates an ItemStackBuilder and sets the material to the material given by the parameter.

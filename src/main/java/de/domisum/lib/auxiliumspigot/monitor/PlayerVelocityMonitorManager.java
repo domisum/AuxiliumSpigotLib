@@ -25,7 +25,7 @@ public class PlayerVelocityMonitorManager implements Listener
 	private BukkitTask updateTask;
 
 
-	// CONSTRUCTOR
+	// INIT
 	public PlayerVelocityMonitorManager()
 	{
 		registerListener();

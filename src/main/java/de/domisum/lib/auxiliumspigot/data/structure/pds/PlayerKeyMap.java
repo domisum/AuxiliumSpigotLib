@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class PlayerKeyMap<T> extends HashMap<Player, T> implements PlayerDataStructure
 {
 
-	// CONSTRUCTOR
+	// INIT
 	@APIUsage public PlayerKeyMap()
 	{
 		AuxiliumSpigotLib.getPlayerDataStructureListener().registerPlayerDataStructure(this);

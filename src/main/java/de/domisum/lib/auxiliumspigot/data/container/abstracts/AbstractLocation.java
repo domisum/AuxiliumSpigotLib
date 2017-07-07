@@ -13,39 +13,28 @@ public class AbstractLocation
 {
 
 	// GAME
-	@SetByDeserialization
-	private String world;
+	@SetByDeserialization private String world;
 
-	@SetByDeserialization
-	private double x;
-	@SetByDeserialization
-	private double y;
-	@SetByDeserialization
-	private double z;
+	@SetByDeserialization private double x;
+	@SetByDeserialization private double y;
+	@SetByDeserialization private double z;
 
-	@SetByDeserialization
-	private float yaw;
-	@SetByDeserialization
-	private float pitch;
+	@SetByDeserialization private float yaw;
+	@SetByDeserialization private float pitch;
 
 
-	// -------
-	// CONSTRUCTOR
-	// -------
-	@DeserializationNoArgsConstructor
-	public AbstractLocation()
+	// INIT
+	@DeserializationNoArgsConstructor public AbstractLocation()
 	{
 
 	}
 
-	@APIUsage
-	public AbstractLocation(String world, double x, double y, double z)
+	@APIUsage public AbstractLocation(String world, double x, double y, double z)
 	{
 		this(world, x, y, z, 0, 0);
 	}
 
-	@APIUsage
-	public AbstractLocation(String world, double x, double y, double z, float yaw, float pitch)
+	@APIUsage public AbstractLocation(String world, double x, double y, double z, float yaw, float pitch)
 	{
 		this.world = world;
 
@@ -57,8 +46,7 @@ public class AbstractLocation
 		this.pitch = pitch;
 	}
 
-	@APIUsage
-	public AbstractLocation(Location model)
+	@APIUsage public AbstractLocation(Location model)
 	{
 		this.world = model.getWorld().getName();
 
@@ -71,11 +59,8 @@ public class AbstractLocation
 	}
 
 
-	// -------
 	// GETTERS
-	// -------
-	@APIUsage
-	public Location get()
+	@APIUsage public Location get()
 	{
 		World bukkitWorld = Bukkit.getWorld(this.world);
 		if(bukkitWorld == null)
@@ -84,8 +69,7 @@ public class AbstractLocation
 		return new Location(bukkitWorld, this.x, this.y, this.z, this.yaw, this.pitch);
 	}
 
-	@APIUsage
-	public Vector3D getPosition()
+	@APIUsage public Vector3D getPosition()
 	{
 		return new Vector3D(this.x, this.y, this.z);
 	}

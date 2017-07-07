@@ -24,7 +24,7 @@ public class PlayerVelocityMonitor
 	private long lastCheck = System.currentTimeMillis();
 
 
-	// CONSTRUCTOR
+	// INIT
 	protected PlayerVelocityMonitor(Player player)
 	{
 		this.player = player;

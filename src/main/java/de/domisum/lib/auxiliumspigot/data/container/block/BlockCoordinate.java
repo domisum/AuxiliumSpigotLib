@@ -16,34 +16,28 @@ public class BlockCoordinate implements Comparable<BlockCoordinate>
 	public final int z;
 
 
-	// -------
-	// CONSTRUCTOR
-	// -------
-	@APIUsage
-	public BlockCoordinate(Block block)
+	// INIT
+	@APIUsage public BlockCoordinate(Block block)
 	{
 		this.x = block.getX();
 		this.y = block.getY();
 		this.z = block.getZ();
 	}
 
-	@APIUsage
-	public BlockCoordinate(int x, int y, int z)
+	@APIUsage public BlockCoordinate(int x, int y, int z)
 	{
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
 
-	@APIUsage
-	public BlockCoordinate(int x, int z)
+	@APIUsage public BlockCoordinate(int x, int z)
 	{
 		this(x, 0, z);
 	}
 
 
-	@Override
-	public boolean equals(Object o)
+	@Override public boolean equals(Object o)
 	{
 		if(!(o instanceof BlockCoordinate))
 			return false;
@@ -52,8 +46,7 @@ public class BlockCoordinate implements Comparable<BlockCoordinate>
 		return (other.x == this.x) && (other.y == this.y) && (other.z == this.z);
 	}
 
-	@Override
-	public int hashCode()
+	@Override public int hashCode()
 	{
 		int hash = 0;
 		hash |= (this.x%4096)<<20; // 12 bits long, in [0;11]
@@ -63,15 +56,13 @@ public class BlockCoordinate implements Comparable<BlockCoordinate>
 		return hash;
 	}
 
-	@Override
-	public String toString()
+	@Override public String toString()
 	{
 		return "[x="+this.x+",y="+this.y+",z="+this.z+"]";
 	}
 
 
-	@Override
-	public int compareTo(@Nonnull BlockCoordinate other)
+	@Override public int compareTo(@Nonnull BlockCoordinate other)
 	{
 		int dX = other.x-this.x;
 		if(dX != 0)
@@ -89,56 +80,46 @@ public class BlockCoordinate implements Comparable<BlockCoordinate>
 	}
 
 
-	// -------
 	// INTERACTION
-	// -------
-	@APIUsage
-	public BlockCoordinate add(int dX, int dY, int dZ)
+	@APIUsage public BlockCoordinate add(int dX, int dY, int dZ)
 	{
 		return new BlockCoordinate(this.x+dX, this.y+dY, this.z+dZ);
 	}
 
-	@APIUsage
-	public BlockCoordinate add(BlockCoordinate other)
+	@APIUsage public BlockCoordinate add(BlockCoordinate other)
 	{
 		return add(other.x, other.y, other.z);
 	}
 
-	@APIUsage
-	public BlockCoordinate add(Direction2D dir2d)
+	@APIUsage public BlockCoordinate add(Direction2D dir2d)
 	{
 		return add(dir2d.dX, 0, dir2d.dZ);
 	}
 
 
-	@APIUsage
-	public BlockCoordinate subtract(int dX, int dY, int dZ)
+	@APIUsage public BlockCoordinate subtract(int dX, int dY, int dZ)
 	{
 		return add(-dX, -dY, -dZ);
 	}
 
-	@APIUsage
-	public BlockCoordinate subtract(BlockCoordinate other)
+	@APIUsage public BlockCoordinate subtract(BlockCoordinate other)
 	{
 		return add(other.opposite());
 	}
 
 
-	@APIUsage
-	public BlockCoordinate opposite()
+	@APIUsage public BlockCoordinate opposite()
 	{
 		return new BlockCoordinate(-this.x, -this.y, -this.z);
 	}
 
 
-	@APIUsage
-	public double getDistance(BlockCoordinate other)
+	@APIUsage public double getDistance(BlockCoordinate other)
 	{
 		return Math.sqrt(getDistanceSquared(other));
 	}
 
-	@APIUsage
-	public double getDistanceSquared(BlockCoordinate other)
+	@APIUsage public double getDistanceSquared(BlockCoordinate other)
 	{
 		int dX = other.x-this.x;
 		int dY = other.y-this.y;
