@@ -19,9 +19,7 @@ public class AuxiliumSpigotLib
 	private PlayerVelocityMonitorManager playerVelocityMonitorManager;
 
 
-	// -------
-	// CONSTRUCTOR
-	// -------
+	// INIT
 	private AuxiliumSpigotLib(Plugin plugin)
 	{
 		this.plugin = plugin;
@@ -60,9 +58,7 @@ public class AuxiliumSpigotLib
 	}
 
 
-	// -------
 	// GETTERS
-	// -------
 	@APIUsage public static AuxiliumSpigotLib getInstance()
 	{
 		if(instance == null)
@@ -76,7 +72,7 @@ public class AuxiliumSpigotLib
 		return getInstance().plugin;
 	}
 
-	public Logger getLogger()
+	private Logger getLogger()
 	{
 		return getInstance().plugin.getLogger();
 	}
