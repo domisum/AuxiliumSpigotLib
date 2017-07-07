@@ -18,27 +18,18 @@ public class AbstractItemStack
 {
 
 	// GAME
-	@SetByDeserialization
-	private Material material;
-	@SetByDeserialization
-	private int amount;
-	@SetByDeserialization
-	private short durability;
+	@SetByDeserialization private Material material;
+	@SetByDeserialization private int amount;
+	@SetByDeserialization private short durability;
 
-	@SetByDeserialization
-	private String displayName;
-	@SetByDeserialization
-	private List<String> lore;
+	@SetByDeserialization private String displayName;
+	@SetByDeserialization private List<String> lore;
 
-	@SetByDeserialization
-	private AbstractPotionEffect potionEffect;
+	@SetByDeserialization private AbstractPotionEffect potionEffect;
 
 
-	// -------
 	// CONSTRUCTOR
-	// -------
-	@DeserializationNoArgsConstructor
-	public AbstractItemStack()
+	@DeserializationNoArgsConstructor public AbstractItemStack()
 	{
 
 	}
@@ -48,8 +39,7 @@ public class AbstractItemStack
 	 *
 	 * @param itemStack the ItemStack to generate the AbstractItemStack from
 	 */
-	@APIUsage
-	public AbstractItemStack(ItemStack itemStack)
+	@APIUsage public AbstractItemStack(ItemStack itemStack)
 	{
 		this.material = itemStack.getType();
 		this.amount = itemStack.getAmount();
@@ -72,37 +62,30 @@ public class AbstractItemStack
 	 *
 	 * @param material The material of the AbstractItemStack
 	 */
-	@APIUsage
-	public AbstractItemStack(Material material)
+	@APIUsage public AbstractItemStack(Material material)
 	{
 		this.material = material;
 		this.amount = 1;
 	}
 
 
-	// -------
 	// GETTERS
-	// -------
-	@APIUsage
-	public Material getMaterial()
+	@APIUsage public Material getMaterial()
 	{
 		return this.material;
 	}
 
-	@APIUsage
-	public int getAmount()
+	@APIUsage public int getAmount()
 	{
 		return this.amount;
 	}
 
-	@APIUsage
-	public short getDurability()
+	@APIUsage public short getDurability()
 	{
 		return this.durability;
 	}
 
-	@APIUsage
-	public ItemStack get()
+	@APIUsage public ItemStack get()
 	{
 		ItemStack itemStack = new ItemStack(this.material, this.amount, this.durability);
 
@@ -121,11 +104,8 @@ public class AbstractItemStack
 	}
 
 
-	// -------
 	// SETTERS
-	// -------
-	@APIUsage
-	public void setAmount(int amount)
+	@APIUsage public void setAmount(int amount)
 	{
 		this.amount = amount;
 	}
