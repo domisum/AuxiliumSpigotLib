@@ -35,11 +35,8 @@ public class PlayerCausedExplosion implements Listener
 	private boolean damageSelf = true;
 
 
-	// -------
 	// CONSTRUCTOR
-	// -------
-	@APIUsage
-	public PlayerCausedExplosion(Location location, Player player)
+	@APIUsage public PlayerCausedExplosion(Location location, Player player)
 	{
 		this.location = location;
 
@@ -57,53 +54,41 @@ public class PlayerCausedExplosion implements Listener
 	}
 
 
-	/*
 	// GETTERS
-	*/
-	@APIUsage
-	protected boolean shouldDamage(Entity entity)
+	@APIUsage protected boolean shouldDamage(Entity entity)
 	{
 		return true;
 	}
 
 
-	// -------
 	// SETTERS
-	// -------
-	@APIUsage
-	public PlayerCausedExplosion setPower(double power)
+	@APIUsage public PlayerCausedExplosion setPower(double power)
 	{
 		this.power = power;
 		return this;
 	}
 
-	@APIUsage
-	public PlayerCausedExplosion setFire(boolean fire)
+	@APIUsage public PlayerCausedExplosion setFire(boolean fire)
 	{
 		this.fire = fire;
 		return this;
 	}
 
-	@APIUsage
-	public PlayerCausedExplosion setBreakBlocks(boolean breakBlocks)
+	@APIUsage public PlayerCausedExplosion setBreakBlocks(boolean breakBlocks)
 	{
 		this.breakBlocks = breakBlocks;
 		return this;
 	}
 
-	@APIUsage
-	public PlayerCausedExplosion setDamageSelf(boolean damageSelf)
+	@APIUsage public PlayerCausedExplosion setDamageSelf(boolean damageSelf)
 	{
 		this.damageSelf = damageSelf;
 		return this;
 	}
 
 
-	// -------
 	// EXPLOSION
-	// -------
-	@APIUsage
-	public void detonate()
+	@APIUsage public void detonate()
 	{
 		Bukkit.getScheduler().runTask(AuxiliumSpigotLib.getPlugin(), this::detonateSync);
 	}
@@ -121,11 +106,8 @@ public class PlayerCausedExplosion implements Listener
 	}
 
 
-	// -------
 	// EVENTS
-	// -------
-	@EventHandler(priority = EventPriority.LOWEST)
-	public void entityDeathByExplosion(EntityDeathEvent event)
+	@EventHandler(priority = EventPriority.LOWEST) public void entityDeathByExplosion(EntityDeathEvent event)
 	{
 		if(currentPlayer == null)
 			return;
@@ -134,8 +116,7 @@ public class PlayerCausedExplosion implements Listener
 		((CraftLivingEntity) event.getEntity()).getHandle().killer = ((CraftPlayer) currentPlayer).getHandle();
 	}
 
-	@EventHandler(priority = EventPriority.LOWEST)
-	public void entityDamageByExplosion(EntityDamageEvent event)
+	@EventHandler(priority = EventPriority.LOWEST) public void entityDamageByExplosion(EntityDamageEvent event)
 	{
 		if(currentPlayer == null)
 			return;
