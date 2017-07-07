@@ -20,9 +20,7 @@ public class PlayerDataStructureListener implements Listener
 	private List<WeakReference<PlayerDataStructure>> playerDataStructures = new ArrayList<>();
 
 
-	// -------
-	// CONSTRUCTOR
-	// -------
+	// INIT
 	public PlayerDataStructureListener()
 	{
 		registerListener();
@@ -35,20 +33,15 @@ public class PlayerDataStructureListener implements Listener
 	}
 
 
-	// -------
 	// REGISTRATION
-	// -------
-	void registerPlayerDataStructure(PlayerDataStructure pds)
+	protected void registerPlayerDataStructure(PlayerDataStructure pds)
 	{
 		this.playerDataStructures.add(new WeakReference<>(pds));
 	}
 
 
-	// -------
 	// EVENTS
-	// -------
-	@EventHandler(priority = EventPriority.LOWEST)
-	public void playerLeave(PlayerQuitEvent event)
+	@EventHandler(priority = EventPriority.LOWEST) public void playerLeave(PlayerQuitEvent event)
 	{
 		Player player = event.getPlayer();
 
