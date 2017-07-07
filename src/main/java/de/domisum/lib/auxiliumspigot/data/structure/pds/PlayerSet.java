@@ -10,17 +10,13 @@ import java.util.HashSet;
 public class PlayerSet extends HashSet<Player> implements PlayerDataStructure
 {
 
-	// -------
 	// CONSTRUCTOR
-	// -------
-	@APIUsage
-	public PlayerSet()
+	@APIUsage public PlayerSet()
 	{
 		AuxiliumSpigotLib.getPlayerDataStructureListener().registerPlayerDataStructure(this);
 	}
 
-	@APIUsage
-	public PlayerSet(Player[] players)
+	@APIUsage public PlayerSet(Player[] players)
 	{
 		this();
 
@@ -29,27 +25,20 @@ public class PlayerSet extends HashSet<Player> implements PlayerDataStructure
 	}
 
 
-	// -------
 	// EVENTS
-	// -------
-	@APIUsage
-	@Override
-	public boolean contains(Player player)
+	@APIUsage @Override public boolean contains(Player player)
 	{
 		return super.contains(player);
 	}
 
-	@APIUsage
-	@Override
-	public boolean removePlayer(Player player)
+	@APIUsage @Override public boolean removePlayer(Player player)
 	{
 		return remove(player);
 	}
 
-	@Override
-	public void onLeave(Player player)
+	@Override public void onLeave(Player player)
 	{
-
+		// to be overwritten, if so desiredN
 	}
 
 }

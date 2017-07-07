@@ -10,37 +10,27 @@ import java.util.HashMap;
 public class PlayerValueMap<T> extends HashMap<T, Player> implements PlayerDataStructure
 {
 
-	// -------
 	// CONSTRUCTOR
-	// -------
-	@APIUsage
-	public PlayerValueMap()
+	@APIUsage public PlayerValueMap()
 	{
 		AuxiliumSpigotLib.getPlayerDataStructureListener().registerPlayerDataStructure(this);
 	}
 
 
-	// -------
 	// EVENTS
-	// -------
-	@APIUsage
-	@Override
-	public boolean contains(Player player)
+	@APIUsage @Override public boolean contains(Player player)
 	{
 		return super.containsValue(player);
 	}
 
-	@APIUsage
-	@Override
-	public boolean removePlayer(Player player)
+	@APIUsage @Override public boolean removePlayer(Player player)
 	{
 		return entrySet().removeIf((entry)->entry.getValue() == player);
 	}
 
-	@Override
-	public void onLeave(Player player)
+	@Override public void onLeave(Player player)
 	{
-
+		// to be overwritten, if so desired
 	}
 
 }
