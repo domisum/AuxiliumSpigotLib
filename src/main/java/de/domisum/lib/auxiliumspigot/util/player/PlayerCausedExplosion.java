@@ -124,9 +124,8 @@ public class PlayerCausedExplosion implements Listener
 		Entity entity = event.getEntity();
 
 		// prevent self damage if disabled
-		if(!this.damageSelf)
-			if(entity == currentPlayer)
-				event.setCancelled(true);
+		if(!this.damageSelf && currentPlayer.equals(entity))
+			event.setCancelled(true);
 
 		if(!shouldDamage(entity))
 			event.setCancelled(true);
