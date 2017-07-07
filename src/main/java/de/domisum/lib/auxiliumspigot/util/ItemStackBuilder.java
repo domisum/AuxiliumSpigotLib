@@ -217,13 +217,12 @@ public class ItemStackBuilder
 	 */
 	@APIUsage public ItemStackBuilder addLore(List<String> additionalLore)
 	{
-		additionalLore = processLore(additionalLore);
+		List<String> processedLore = processLore(additionalLore);
 
 		if(this.lore == null)
 			this.lore = new ArrayList<>();
 
-		this.lore.addAll(additionalLore);
-
+		this.lore.addAll(processedLore);
 		return this;
 	}
 
