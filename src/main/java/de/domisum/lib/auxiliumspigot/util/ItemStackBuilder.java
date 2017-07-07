@@ -335,9 +335,8 @@ public class ItemStackBuilder
 
 		itemStack.addUnsafeEnchantments(this.enchantments);
 
-		if(this.glowing)
-			if(this.enchantments.size() == 0)
-				itemStack = makeGlow(itemStack);
+		if(this.glowing && this.enchantments.size() == 0)
+			itemStack = makeGlow(itemStack);
 
 		if(this.skullOwner != null)
 		{
