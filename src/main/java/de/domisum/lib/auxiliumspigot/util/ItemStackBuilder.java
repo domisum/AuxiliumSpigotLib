@@ -42,9 +42,7 @@ public class ItemStackBuilder
 	private String skullOwner;
 
 
-	/*
 	// CONSTRUCTOR
-	*/
 
 	/**
 	 * Creates an ItemStackBuilder and sets the material to the material given by the parameter.
@@ -53,8 +51,7 @@ public class ItemStackBuilder
 	 *
 	 * @param material the material
 	 */
-	@APIUsage
-	public ItemStackBuilder(Material material)
+	@APIUsage public ItemStackBuilder(Material material)
 	{
 		this.material = material;
 	}
@@ -65,8 +62,7 @@ public class ItemStackBuilder
 	 *
 	 * @param itemStack the ItemStack
 	 */
-	@APIUsage
-	public ItemStackBuilder(ItemStack itemStack)
+	@APIUsage public ItemStackBuilder(ItemStack itemStack)
 	{
 		// base values
 		this.material = itemStack.getType();
@@ -108,9 +104,8 @@ public class ItemStackBuilder
 	}
 
 
-	/*
 	// SETTERS
-	*/
+
 	// BASE VALUES
 
 	/**
@@ -119,8 +114,7 @@ public class ItemStackBuilder
 	 * @param material the material
 	 * @return this
 	 */
-	@APIUsage
-	public ItemStackBuilder material(Material material)
+	@APIUsage public ItemStackBuilder material(Material material)
 	{
 		this.material = material;
 
@@ -136,8 +130,7 @@ public class ItemStackBuilder
 	 * @param amount the amount
 	 * @return this
 	 */
-	@APIUsage
-	public ItemStackBuilder amount(int amount)
+	@APIUsage public ItemStackBuilder amount(int amount)
 	{
 		this.amount = amount;
 
@@ -154,8 +147,7 @@ public class ItemStackBuilder
 	 * @param durability the durability
 	 * @return this
 	 */
-	@APIUsage
-	public ItemStackBuilder durability(int durability)
+	@APIUsage public ItemStackBuilder durability(int durability)
 	{
 		this.durability = (short) durability;
 
@@ -176,8 +168,7 @@ public class ItemStackBuilder
 	 * @param displayName the displayName
 	 * @return this
 	 */
-	@APIUsage
-	public ItemStackBuilder displayName(String displayName)
+	@APIUsage public ItemStackBuilder displayName(String displayName)
 	{
 		this.displayName = ChatColor.WHITE+displayName;
 
@@ -199,8 +190,7 @@ public class ItemStackBuilder
 	 * @param loreArray varargs/array of lore line Strings
 	 * @return this
 	 */
-	@APIUsage
-	public ItemStackBuilder lore(String... loreArray)
+	@APIUsage public ItemStackBuilder lore(String... loreArray)
 	{
 		this.lore = processLore(new ArrayList<>(Arrays.asList(loreArray)));
 
@@ -212,8 +202,7 @@ public class ItemStackBuilder
 	 * @return this
 	 * @see #addLore(List)
 	 */
-	@APIUsage
-	public ItemStackBuilder addLore(String... additionalLoreArray)
+	@APIUsage public ItemStackBuilder addLore(String... additionalLoreArray)
 	{
 		return addLore(new ArrayList<>(Arrays.asList(additionalLoreArray)));
 	}
@@ -226,8 +215,7 @@ public class ItemStackBuilder
 	 * @param additionalLore the new lines to add to the lore
 	 * @return this
 	 */
-	@APIUsage
-	public ItemStackBuilder addLore(List<String> additionalLore)
+	@APIUsage public ItemStackBuilder addLore(List<String> additionalLore)
 	{
 		additionalLore = processLore(additionalLore);
 
@@ -247,8 +235,7 @@ public class ItemStackBuilder
 	 * @param flags the flags
 	 * @return this
 	 */
-	@APIUsage
-	public ItemStackBuilder flags(ItemFlag... flags)
+	@APIUsage public ItemStackBuilder flags(ItemFlag... flags)
 	{
 		this.flags = flags;
 
@@ -271,8 +258,7 @@ public class ItemStackBuilder
 	 * @param level       the level of the enchantment
 	 * @return this
 	 */
-	@APIUsage
-	public ItemStackBuilder enchantment(Enchantment enchantment, int level)
+	@APIUsage public ItemStackBuilder enchantment(Enchantment enchantment, int level)
 	{
 		// TODO check if the level set here is the same ingame or if 0 here means I ingame
 		this.enchantments.put(enchantment, level);
@@ -290,8 +276,7 @@ public class ItemStackBuilder
 	 * @param glowing whether the ItemStackBuilder should glow
 	 * @return this
 	 */
-	@APIUsage
-	public ItemStackBuilder glowing(boolean glowing)
+	@APIUsage public ItemStackBuilder glowing(boolean glowing)
 	{
 		this.glowing = glowing;
 
@@ -309,8 +294,7 @@ public class ItemStackBuilder
 	 * @param skullOwner the name of the skullOwner
 	 * @return this
 	 */
-	@APIUsage
-	public ItemStackBuilder skullOwner(String skullOwner)
+	@APIUsage public ItemStackBuilder skullOwner(String skullOwner)
 	{
 		this.skullOwner = skullOwner;
 
@@ -318,9 +302,7 @@ public class ItemStackBuilder
 	}
 
 
-	/*
 	// BUILDING
-	*/
 
 	/**
 	 * Builds an ItemStack from the properties of the ItemStackBuilder.
@@ -337,8 +319,7 @@ public class ItemStackBuilder
 	 * @throws IllegalArgumentException if skullOwner is set (not null),
 	 *                                  but the material does not support SkullOwner
 	 */
-	@APIUsage
-	public ItemStack build()
+	@APIUsage public ItemStack build()
 	{
 		if(this.material == null)
 			throw new IllegalStateException("No material was specified for the itemstack");
@@ -380,8 +361,7 @@ public class ItemStackBuilder
 	 * @param itemStack the ItemStack to make glow
 	 * @return a glowing copy of the ItemStack
 	 */
-	@APIUsage
-	protected static ItemStack makeGlow(ItemStack itemStack)
+	@APIUsage protected static ItemStack makeGlow(ItemStack itemStack)
 	{
 		net.minecraft.server.v1_9_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
 		NBTTagCompound tag = null;
@@ -402,9 +382,7 @@ public class ItemStackBuilder
 	}
 
 
-	/*
 	// UTIL
-	*/
 
 	/**
 	 * Helper method to process lore lines.
