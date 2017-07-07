@@ -13,36 +13,36 @@ public class SpigotTextUtil
 {
 
 	// COMPLEX
-	@APIUsage
-	public static List<String> splitTextIntoLines(String text, int maxLineLength)
+	@APIUsage public static List<String> splitTextIntoLines(String text, int maxLineLength)
 	{
 		List<String> lines = new ArrayList<>();
+		String textLeft = text;
 
 		String lastLine = null;
-		while(text.length() > maxLineLength)
+		while(textLeft.length() > maxLineLength)
 		{
 			int lastSpaceIndex = -1;
 			for(int i = 0; i < maxLineLength; i++)
-				if(text.charAt(i) == ' ')
+				if(textLeft.charAt(i) == ' ')
 					lastSpaceIndex = i;
 
 			int lineLength = maxLineLength;
 			if(lastSpaceIndex != -1)
 				lineLength = lastSpaceIndex;
 
-			String line = text.substring(0, lineLength);
+			String line = textLeft.substring(0, lineLength);
 
 			// carry on the chat colors of the last line, each line's color is treated seperately
 			if(lastLine != null)
 				line = ChatColor.getLastColors(lastLine)+line;
 
 			lines.add(line);
-			text = text.substring(lineLength+1);
+			textLeft = textLeft.substring(lineLength+1);
 			lastLine = line;
 		}
 
 		// add last remaining bit, again add colors from line before
-		String line = text;
+		String line = textLeft;
 		if(lastLine != null)
 			line = ChatColor.getLastColors(lastLine)+line;
 		lines.add(line);
@@ -61,8 +61,7 @@ public class SpigotTextUtil
 	}
 
 	// TO STRING
-	@APIUsage
-	public static String getLocationAsString(Location location)
+	@APIUsage public static String getLocationAsString(Location location)
 	{
 		String worldName = location.getWorld() != null ? "'"+location.getWorld().getName()+"'" : "null";
 
