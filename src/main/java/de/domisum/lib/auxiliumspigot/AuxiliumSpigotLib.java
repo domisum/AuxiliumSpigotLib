@@ -23,8 +23,6 @@ public class AuxiliumSpigotLib
 	private AuxiliumSpigotLib(Plugin plugin)
 	{
 		this.plugin = plugin;
-
-		onEnable();
 	}
 
 	@APIUsage public static void enable(Plugin plugin)
@@ -33,6 +31,7 @@ public class AuxiliumSpigotLib
 			return;
 
 		instance = new AuxiliumSpigotLib(plugin);
+		instance.onEnable();
 	}
 
 	@APIUsage public static void disable()
