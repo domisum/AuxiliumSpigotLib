@@ -1,6 +1,6 @@
 package de.domisum.lib.auxiliumspigot.data.container.abstracts;
 
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxilium.util.java.annotations.DeserializationNoArgsConstructor;
 import de.domisum.lib.auxilium.util.java.annotations.SetByDeserialization;
 import org.bukkit.Material;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Class for serializing and deserializing ItemStacks
  */
-@APIUsage
+@API
 public class AbstractItemStack
 {
 
@@ -39,7 +39,7 @@ public class AbstractItemStack
 	 *
 	 * @param itemStack the ItemStack to generate the AbstractItemStack from
 	 */
-	@APIUsage public AbstractItemStack(ItemStack itemStack)
+	@API public AbstractItemStack(ItemStack itemStack)
 	{
 		this.material = itemStack.getType();
 		this.amount = itemStack.getAmount();
@@ -62,7 +62,7 @@ public class AbstractItemStack
 	 *
 	 * @param material The material of the AbstractItemStack
 	 */
-	@APIUsage public AbstractItemStack(Material material)
+	@API public AbstractItemStack(Material material)
 	{
 		this.material = material;
 		this.amount = 1;
@@ -70,22 +70,22 @@ public class AbstractItemStack
 
 
 	// GETTERS
-	@APIUsage public Material getMaterial()
+	@API public Material getMaterial()
 	{
 		return this.material;
 	}
 
-	@APIUsage public int getAmount()
+	@API public int getAmount()
 	{
 		return this.amount;
 	}
 
-	@APIUsage public short getDurability()
+	@API public short getDurability()
 	{
 		return this.durability;
 	}
 
-	@APIUsage public ItemStack get()
+	@API public ItemStack get()
 	{
 		ItemStack itemStack = new ItemStack(this.material, this.amount, this.durability);
 
@@ -104,7 +104,7 @@ public class AbstractItemStack
 
 
 	// SETTERS
-	@APIUsage public void setAmount(int amount)
+	@API public void setAmount(int amount)
 	{
 		this.amount = amount;
 	}

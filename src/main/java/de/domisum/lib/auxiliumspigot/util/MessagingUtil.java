@@ -1,6 +1,6 @@
 package de.domisum.lib.auxiliumspigot.util;
 
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 import net.md_5.bungee.api.ChatColor;
 import net.minecraft.server.v1_9_R1.IChatBaseComponent;
 import net.minecraft.server.v1_9_R1.IChatBaseComponent.ChatSerializer;
@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 public class MessagingUtil
 {
 
-	@APIUsage public static void sendActionBarMessage(String message, Player... players)
+	@API public static void sendActionBarMessage(String message, Player... players)
 	{
 		IChatBaseComponent cbc = ChatSerializer.a("{\"text\": \""+message+"\"}");
 		PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, (byte) 2);
@@ -21,7 +21,7 @@ public class MessagingUtil
 	}
 
 
-	@APIUsage public static void sendStatusMessage(Player player, String message)
+	@API public static void sendStatusMessage(Player player, String message)
 	{
 		player.sendMessage(ChatColor.GRAY.toString()+ChatColor.ITALIC+"["+message+"]");
 	}

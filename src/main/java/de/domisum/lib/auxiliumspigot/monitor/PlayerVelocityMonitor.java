@@ -1,10 +1,10 @@
 package de.domisum.lib.auxiliumspigot.monitor;
 
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
-@APIUsage
+@API
 public class PlayerVelocityMonitor
 {
 
@@ -30,19 +30,19 @@ public class PlayerVelocityMonitor
 		this.player = player;
 	}
 
-	@APIUsage public void terminate()
+	@API public void terminate()
 	{
 		this.terminated = true;
 	}
 
 
 	// GETTERS
-	@APIUsage public boolean isTooYoung()
+	@API public boolean isTooYoung()
 	{
 		return (this.lastTick == 0) && (this.lastMove == 0);
 	}
 
-	@APIUsage public Vector getVelocity()
+	@API public Vector getVelocity()
 	{
 		this.lastCheck = System.currentTimeMillis();
 
@@ -54,12 +54,12 @@ public class PlayerVelocityMonitor
 		return this.player;
 	}
 
-	@APIUsage public boolean isTerminated()
+	@API public boolean isTerminated()
 	{
 		return this.terminated;
 	}
 
-	@APIUsage public boolean isTimedOut()
+	@API public boolean isTimedOut()
 	{
 		return (this.lastCheck+TIMEOUT_DURATION_MS) < System.currentTimeMillis();
 	}

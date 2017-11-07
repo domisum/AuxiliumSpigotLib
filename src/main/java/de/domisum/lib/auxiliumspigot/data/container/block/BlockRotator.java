@@ -1,13 +1,13 @@
 package de.domisum.lib.auxiliumspigot.data.container.block;
 
 import de.domisum.lib.auxilium.data.container.dir.Axis;
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 
-@APIUsage
+@API
 public class BlockRotator
 {
 
-	@APIUsage public static byte rotateWood(byte data, Axis axis)
+	@API public static byte rotateWood(byte data, Axis axis)
 	{
 		if(axis == Axis.Y)
 			return data;

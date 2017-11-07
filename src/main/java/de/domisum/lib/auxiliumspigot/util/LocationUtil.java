@@ -1,7 +1,7 @@
 package de.domisum.lib.auxiliumspigot.util;
 
 import de.domisum.lib.auxilium.data.container.math.Vector3D;
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -10,7 +10,7 @@ import org.bukkit.util.Vector;
 /**
  * Class with helper methods to make Bukkit {@code Loction} handling easier
  */
-@APIUsage
+@API
 public class LocationUtil
 {
 
@@ -26,7 +26,7 @@ public class LocationUtil
 	 * @param target the location to look at
 	 * @return the copy of base that "looks" towards target
 	 */
-	@APIUsage public static Location lookAt(Location base, Location target)
+	@API public static Location lookAt(Location base, Location target)
 	{
 		double dX = target.getX()-base.getX();
 		double dY = target.getY()-base.getY();
@@ -52,7 +52,7 @@ public class LocationUtil
 	 * @return the center location
 	 * @see #getCenter(Location)
 	 */
-	@APIUsage public static Location getCenter(Block block)
+	@API public static Location getCenter(Block block)
 	{
 		return block.getLocation().add(0.5, 0.5, 0.5);
 	}
@@ -66,7 +66,7 @@ public class LocationUtil
 	 * @return the center location
 	 * @see #getCenter(Block)
 	 */
-	@APIUsage public static Location getCenter(Location location)
+	@API public static Location getCenter(Location location)
 	{
 		return new Location(location.getWorld(), location.getBlockX()+.5, location.getBlockY()+.5, location.getBlockZ()+.5,
 				location.getYaw(), location.getPitch());
@@ -85,13 +85,13 @@ public class LocationUtil
 	 * @return the floor location
 	 * @see #getCenter(Location)
 	 */
-	@APIUsage public static Location getFloorCenter(Location location)
+	@API public static Location getFloorCenter(Location location)
 	{
 		return getCenter(location).add(0, -.5, 0);
 	}
 
 
-	@APIUsage public static Location moveLocationTowardsYaw(Location location, double distance)
+	@API public static Location moveLocationTowardsYaw(Location location, double distance)
 	{
 		double dX = -Math.sin(Math.toRadians(location.getYaw()))*distance;
 		double dZ = Math.cos(Math.toRadians(location.getYaw()))*distance;
@@ -101,12 +101,12 @@ public class LocationUtil
 
 
 	// PLAYER
-	@APIUsage public static Location getPlayerHandLocation(Player player)
+	@API public static Location getPlayerHandLocation(Player player)
 	{
 		return getPlayerHandLocation(player, false);
 	}
 
-	@APIUsage public static Location getPlayerHandLocation(Player player, boolean offhand)
+	@API public static Location getPlayerHandLocation(Player player, boolean offhand)
 	{
 		Location handLocation = player.getLocation().clone().add(0, 1.5, 0);
 		Vector dir = handLocation.getDirection().setY(0).normalize();
@@ -123,7 +123,7 @@ public class LocationUtil
 
 
 	// CHUNK
-	@APIUsage public static boolean isChunkLoaded(Location location)
+	@API public static boolean isChunkLoaded(Location location)
 	{
 		int chunkX = location.getBlockX()>>4;
 		int chunkZ = location.getBlockZ()>>4;
@@ -133,7 +133,7 @@ public class LocationUtil
 
 
 	// CONVERSION
-	@APIUsage public static Vector3D toVector3D(Location location)
+	@API public static Vector3D toVector3D(Location location)
 	{
 		return new Vector3D(location.getX(), location.getY(), location.getZ());
 	}

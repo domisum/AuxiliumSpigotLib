@@ -1,9 +1,9 @@
 package de.domisum.lib.auxiliumspigot.data.structure.pds;
 
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 import org.bukkit.entity.Player;
 
-@APIUsage
+@API
 public interface PlayerDataStructure
 {
 

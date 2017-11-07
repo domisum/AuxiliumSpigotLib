@@ -1,6 +1,6 @@
 package de.domisum.lib.auxiliumspigot.util.player;
 
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxiliumspigot.AuxiliumSpigotLib;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -15,7 +15,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.plugin.Plugin;
 
-@APIUsage
+@API
 public class PlayerCausedExplosion implements Listener
 {
 
@@ -36,7 +36,7 @@ public class PlayerCausedExplosion implements Listener
 
 
 	// INIT
-	@APIUsage public PlayerCausedExplosion(Location location, Player player)
+	@API public PlayerCausedExplosion(Location location, Player player)
 	{
 		this.location = location;
 
@@ -55,32 +55,32 @@ public class PlayerCausedExplosion implements Listener
 
 
 	// GETTERS
-	@APIUsage protected boolean shouldDamage(Entity entity)
+	@API protected boolean shouldDamage(Entity entity)
 	{
 		return true;
 	}
 
 
 	// SETTERS
-	@APIUsage public PlayerCausedExplosion setPower(double power)
+	@API public PlayerCausedExplosion setPower(double power)
 	{
 		this.power = power;
 		return this;
 	}
 
-	@APIUsage public PlayerCausedExplosion setFire(boolean fire)
+	@API public PlayerCausedExplosion setFire(boolean fire)
 	{
 		this.fire = fire;
 		return this;
 	}
 
-	@APIUsage public PlayerCausedExplosion setBreakBlocks(boolean breakBlocks)
+	@API public PlayerCausedExplosion setBreakBlocks(boolean breakBlocks)
 	{
 		this.breakBlocks = breakBlocks;
 		return this;
 	}
 
-	@APIUsage public PlayerCausedExplosion setDamageSelf(boolean damageSelf)
+	@API public PlayerCausedExplosion setDamageSelf(boolean damageSelf)
 	{
 		this.damageSelf = damageSelf;
 		return this;
@@ -88,7 +88,7 @@ public class PlayerCausedExplosion implements Listener
 
 
 	// EXPLOSION
-	@APIUsage public void detonate()
+	@API public void detonate()
 	{
 		Bukkit.getScheduler().runTask(AuxiliumSpigotLib.getPlugin(), this::detonateSync);
 	}

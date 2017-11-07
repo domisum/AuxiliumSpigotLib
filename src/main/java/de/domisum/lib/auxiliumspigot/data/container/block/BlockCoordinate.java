@@ -1,12 +1,12 @@
 package de.domisum.lib.auxiliumspigot.data.container.block;
 
 import de.domisum.lib.auxilium.data.container.dir.Direction2D;
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 import org.bukkit.block.Block;
 
 import javax.annotation.Nonnull;
 
-@APIUsage
+@API
 public class BlockCoordinate implements Comparable<BlockCoordinate>
 {
 
@@ -17,21 +17,21 @@ public class BlockCoordinate implements Comparable<BlockCoordinate>
 
 
 	// INIT
-	@APIUsage public BlockCoordinate(Block block)
+	@API public BlockCoordinate(Block block)
 	{
 		this.x = block.getX();
 		this.y = block.getY();
 		this.z = block.getZ();
 	}
 
-	@APIUsage public BlockCoordinate(int x, int y, int z)
+	@API public BlockCoordinate(int x, int y, int z)
 	{
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
 
-	@APIUsage public BlockCoordinate(int x, int z)
+	@API public BlockCoordinate(int x, int z)
 	{
 		this(x, 0, z);
 	}
@@ -81,45 +81,45 @@ public class BlockCoordinate implements Comparable<BlockCoordinate>
 
 
 	// INTERACTION
-	@APIUsage public BlockCoordinate add(int dX, int dY, int dZ)
+	@API public BlockCoordinate add(int dX, int dY, int dZ)
 	{
 		return new BlockCoordinate(this.x+dX, this.y+dY, this.z+dZ);
 	}
 
-	@APIUsage public BlockCoordinate add(BlockCoordinate other)
+	@API public BlockCoordinate add(BlockCoordinate other)
 	{
 		return add(other.x, other.y, other.z);
 	}
 
-	@APIUsage public BlockCoordinate add(Direction2D dir2d)
+	@API public BlockCoordinate add(Direction2D dir2d)
 	{
 		return add(dir2d.dX, 0, dir2d.dZ);
 	}
 
 
-	@APIUsage public BlockCoordinate subtract(int dX, int dY, int dZ)
+	@API public BlockCoordinate subtract(int dX, int dY, int dZ)
 	{
 		return add(-dX, -dY, -dZ);
 	}
 
-	@APIUsage public BlockCoordinate subtract(BlockCoordinate other)
+	@API public BlockCoordinate subtract(BlockCoordinate other)
 	{
 		return add(other.opposite());
 	}
 
 
-	@APIUsage public BlockCoordinate opposite()
+	@API public BlockCoordinate opposite()
 	{
 		return new BlockCoordinate(-this.x, -this.y, -this.z);
 	}
 
 
-	@APIUsage public double getDistance(BlockCoordinate other)
+	@API public double getDistance(BlockCoordinate other)
 	{
 		return Math.sqrt(getDistanceSquared(other));
 	}
 
-	@APIUsage public double getDistanceSquared(BlockCoordinate other)
+	@API public double getDistanceSquared(BlockCoordinate other)
 	{
 		int dX = other.x-this.x;
 		int dY = other.y-this.y;

@@ -1,13 +1,13 @@
 package de.domisum.lib.auxiliumspigot.util;
 
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 
 /**
  * A utility class to make changes to blocks easier.
  */
-@APIUsage
+@API
 public class BlockUtil
 {
 
@@ -26,7 +26,7 @@ public class BlockUtil
 	 * @param data     the subId
 	 * @see #setMaterialAndData(Block, Material, byte, boolean)
 	 */
-	@APIUsage public static void setMaterialAndData(Block block, Material material, byte data)
+	@API public static void setMaterialAndData(Block block, Material material, byte data)
 	{
 		setMaterialAndData(block, material, data, false);
 	}
@@ -43,7 +43,7 @@ public class BlockUtil
 	 * @param data     the subId
 	 * @param physics  whether a physics update should be triggered
 	 */
-	@SuppressWarnings("deprecation") @APIUsage public static void setMaterialAndData(Block block, Material material, byte data,
+	@SuppressWarnings("deprecation") @API public static void setMaterialAndData(Block block, Material material, byte data,
 			boolean physics)
 	{
 		block.setTypeIdAndData(material.getId(), data, physics);

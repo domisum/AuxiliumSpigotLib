@@ -1,6 +1,6 @@
 package de.domisum.lib.auxiliumspigot.data.container.abstracts;
 
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxilium.util.java.annotations.DeserializationNoArgsConstructor;
 import de.domisum.lib.auxilium.util.java.annotations.SetByDeserialization;
 import org.bukkit.entity.Player;
@@ -10,7 +10,7 @@ import org.bukkit.inventory.PlayerInventory;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-@APIUsage
+@API
 public class AbstractPlayerInventory
 {
 
@@ -25,7 +25,7 @@ public class AbstractPlayerInventory
 
 	}
 
-	@APIUsage public AbstractPlayerInventory(Player player)
+	@API public AbstractPlayerInventory(Player player)
 	{
 		PlayerInventory inventory = player.getInventory();
 
@@ -64,7 +64,7 @@ public class AbstractPlayerInventory
 
 
 	// INVENTORY
-	@APIUsage public void applyTo(Player player)
+	@API public void applyTo(Player player)
 	{
 		PlayerInventory inventory = player.getInventory();
 

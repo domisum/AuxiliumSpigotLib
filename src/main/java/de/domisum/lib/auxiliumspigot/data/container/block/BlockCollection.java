@@ -1,7 +1,7 @@
 package de.domisum.lib.auxiliumspigot.data.container.block;
 
 import de.domisum.lib.auxilium.data.container.Duo;
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxiliumspigot.data.container.abstracts.AbstractBlock;
 import de.domisum.lib.auxiliumspigot.util.BlockUtil;
 import org.bukkit.Location;
@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-@APIUsage
+@API
 public class BlockCollection
 {
 
@@ -23,24 +23,24 @@ public class BlockCollection
 
 
 	// INIT
-	@APIUsage public BlockCollection()
+	@API public BlockCollection()
 	{
 
 	}
 
-	@APIUsage public BlockCollection(Map<BlockCoordinate, AbstractBlock> blocks)
+	@API public BlockCollection(Map<BlockCoordinate, AbstractBlock> blocks)
 	{
 		this.blocks = blocks;
 	}
 
 
 	// GETTERS
-	@APIUsage public Map<BlockCoordinate, AbstractBlock> getBlocks()
+	@API public Map<BlockCoordinate, AbstractBlock> getBlocks()
 	{
 		return this.blocks;
 	}
 
-	@APIUsage public AbstractBlock get(BlockCoordinate coordinate)
+	@API public AbstractBlock get(BlockCoordinate coordinate)
 	{
 		AbstractBlock block = this.blocks.get(coordinate);
 		if(block != null)
@@ -49,13 +49,13 @@ public class BlockCollection
 		return DEFAULT_BLOCK;
 	}
 
-	@APIUsage public boolean isSet(BlockCoordinate coordinate)
+	@API public boolean isSet(BlockCoordinate coordinate)
 	{
 		return this.blocks.containsKey(coordinate);
 	}
 
 
-	@APIUsage public Duo<BlockCoordinate, BlockCoordinate> getBounds()
+	@API public Duo<BlockCoordinate, BlockCoordinate> getBounds()
 	{
 		int minX = Integer.MAX_VALUE;
 		int minY = Integer.MAX_VALUE;
@@ -94,7 +94,7 @@ public class BlockCollection
 
 
 	// SETTERS
-	@APIUsage public void set(BlockCoordinate coordinate, AbstractBlock block)
+	@API public void set(BlockCoordinate coordinate, AbstractBlock block)
 	{
 		if(block == null)
 		{
@@ -105,7 +105,7 @@ public class BlockCollection
 		this.blocks.put(coordinate, block);
 	}
 
-	@APIUsage public void set(BlockCollection blockCollection)
+	@API public void set(BlockCollection blockCollection)
 	{
 		for(Entry<BlockCoordinate, AbstractBlock> entry : blockCollection.blocks.entrySet())
 			this.blocks.put(entry.getKey(), entry.getValue());
@@ -113,7 +113,7 @@ public class BlockCollection
 
 
 	// BUILDING
-	@SuppressWarnings("deprecation") @APIUsage public void buildAt(Location location)
+	@SuppressWarnings("deprecation") @API public void buildAt(Location location)
 	{
 		Map<BlockCoordinate, AbstractBlock> fragileBlocks = new HashMap<>();
 

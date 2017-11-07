@@ -1,6 +1,6 @@
 package de.domisum.lib.auxiliumspigot.monitor;
 
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxiliumspigot.AuxiliumSpigotLib;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -39,7 +39,7 @@ public class PlayerVelocityMonitorManager implements Listener
 
 
 	// REGISTRATION
-	@APIUsage public static PlayerVelocityMonitor getFor(Player player)
+	@API public static PlayerVelocityMonitor getFor(Player player)
 	{
 		PlayerVelocityMonitorManager pvmm = AuxiliumSpigotLib.getPlayerVelocityMonitorManager();
 		if(pvmm.playerVelocityMonitors.containsKey(player))

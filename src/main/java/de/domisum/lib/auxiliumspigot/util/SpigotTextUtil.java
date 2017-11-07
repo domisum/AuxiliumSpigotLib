@@ -1,6 +1,6 @@
 package de.domisum.lib.auxiliumspigot.util;
 
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxilium.util.math.MathUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -8,12 +8,12 @@ import org.bukkit.Location;
 import java.util.ArrayList;
 import java.util.List;
 
-@APIUsage
+@API
 public class SpigotTextUtil
 {
 
 	// COMPLEX
-	@APIUsage public static List<String> splitTextIntoLines(String text, int maxLineLength)
+	@API public static List<String> splitTextIntoLines(String text, int maxLineLength)
 	{
 		List<String> lines = new ArrayList<>();
 		String textLeft = text;
@@ -61,7 +61,7 @@ public class SpigotTextUtil
 	}
 
 	// TO STRING
-	@APIUsage public static String getLocationAsString(Location location)
+	@API public static String getLocationAsString(Location location)
 	{
 		String worldName = location.getWorld() != null ? "'"+location.getWorld().getName()+"'" : "null";
 

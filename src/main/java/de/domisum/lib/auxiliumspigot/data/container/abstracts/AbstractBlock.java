@@ -1,6 +1,6 @@
 package de.domisum.lib.auxiliumspigot.data.container.abstracts;
 
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxilium.util.java.annotations.DeserializationNoArgsConstructor;
 import de.domisum.lib.auxilium.util.java.annotations.SetByDeserialization;
 import de.domisum.lib.auxiliumspigot.data.container.block.BlockCoordinate;
@@ -11,7 +11,7 @@ import org.bukkit.block.Block;
 /**
  * Class for serializing and deserializing blocks
  */
-@APIUsage
+@API
 public class AbstractBlock
 {
 
@@ -33,24 +33,24 @@ public class AbstractBlock
 	 * @param material The material of the block
 	 * @param data     the subId of the block
 	 */
-	@APIUsage public AbstractBlock(Material material, byte data)
+	@API public AbstractBlock(Material material, byte data)
 	{
 		this.material = material;
 		this.data = data;
 	}
 
 
-	@APIUsage public AbstractBlock(World world, BlockCoordinate blockCoordinate)
+	@API public AbstractBlock(World world, BlockCoordinate blockCoordinate)
 	{
 		this(world.getBlockAt(blockCoordinate.x, blockCoordinate.y, blockCoordinate.z));
 	}
 
-	@APIUsage public AbstractBlock(World world, int x, int y, int z)
+	@API public AbstractBlock(World world, int x, int y, int z)
 	{
 		this(world.getBlockAt(x, y, z));
 	}
 
-	@APIUsage public AbstractBlock(Block block)
+	@API public AbstractBlock(Block block)
 	{
 		this.material = block.getType();
 		//noinspection deprecation

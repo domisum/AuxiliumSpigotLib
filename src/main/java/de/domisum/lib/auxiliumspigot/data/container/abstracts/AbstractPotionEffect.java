@@ -1,13 +1,13 @@
 package de.domisum.lib.auxiliumspigot.data.container.abstracts;
 
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxilium.util.java.annotations.DeserializationNoArgsConstructor;
 import de.domisum.lib.auxilium.util.java.annotations.SetByDeserialization;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-@APIUsage
+@API
 public class AbstractPotionEffect
 {
 
@@ -47,7 +47,7 @@ public class AbstractPotionEffect
 
 
 	// APPLICATION
-	@APIUsage public void applyTo(PotionMeta potionMeta)
+	@API public void applyTo(PotionMeta potionMeta)
 	{
 		PotionEffect effect = new PotionEffect(getType(), this.duration, this.amplifier);
 		potionMeta.addCustomEffect(effect, true);

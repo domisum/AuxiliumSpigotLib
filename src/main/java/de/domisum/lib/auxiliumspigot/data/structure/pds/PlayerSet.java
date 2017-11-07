@@ -1,23 +1,23 @@
 package de.domisum.lib.auxiliumspigot.data.structure.pds;
 
-import de.domisum.lib.auxilium.util.java.annotations.APIUsage;
+import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxiliumspigot.AuxiliumSpigotLib;
 import org.bukkit.entity.Player;
 
 import java.util.Arrays;
 import java.util.HashSet;
 
-@APIUsage
+@API
 public class PlayerSet extends HashSet<Player> implements PlayerDataStructure
 {
 
 	// INIT
-	@APIUsage public PlayerSet()
+	@API public PlayerSet()
 	{
 		AuxiliumSpigotLib.getPlayerDataStructureListener().registerPlayerDataStructure(this);
 	}
 
-	@APIUsage public PlayerSet(Player[] players)
+	@API public PlayerSet(Player[] players)
 	{
 		this();
 
@@ -26,12 +26,12 @@ public class PlayerSet extends HashSet<Player> implements PlayerDataStructure
 
 
 	// EVENTS
-	@APIUsage @Override public boolean contains(Player player)
+	@API @Override public boolean contains(Player player)
 	{
 		return super.contains(player);
 	}
 
-	@APIUsage @Override public boolean removePlayer(Player player)
+	@API @Override public boolean removePlayer(Player player)
 	{
 		return remove(player);
 	}
