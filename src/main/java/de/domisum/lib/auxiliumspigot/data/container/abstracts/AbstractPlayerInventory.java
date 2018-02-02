@@ -2,7 +2,7 @@ package de.domisum.lib.auxiliumspigot.data.container.abstracts;
 
 import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxilium.util.java.annotations.DeserializationNoArgsConstructor;
-import de.domisum.lib.auxilium.util.java.annotations.SetByDeserialization;
+import de.domisum.lib.auxilium.util.java.annotations.InitByDeserialization;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -15,8 +15,8 @@ public class AbstractPlayerInventory
 {
 
 	// PROPERTIES
-	@SetByDeserialization private HashMap<Integer, AbstractItemStack> items = new HashMap<>();
-	@SetByDeserialization private int heldItemSlot;
+	@InitByDeserialization private HashMap<Integer, AbstractItemStack> items = new HashMap<>();
+	@InitByDeserialization private int heldItemSlot;
 
 
 	// INIT

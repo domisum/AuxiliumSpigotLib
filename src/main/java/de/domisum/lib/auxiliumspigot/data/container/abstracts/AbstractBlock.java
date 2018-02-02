@@ -2,7 +2,7 @@ package de.domisum.lib.auxiliumspigot.data.container.abstracts;
 
 import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxilium.util.java.annotations.DeserializationNoArgsConstructor;
-import de.domisum.lib.auxilium.util.java.annotations.SetByDeserialization;
+import de.domisum.lib.auxilium.util.java.annotations.InitByDeserialization;
 import de.domisum.lib.auxiliumspigot.data.container.block.BlockCoordinate;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -16,8 +16,8 @@ public class AbstractBlock
 {
 
 	// PROPERTIES
-	@SetByDeserialization public final Material material;
-	@SetByDeserialization public final byte data;
+	@InitByDeserialization public final Material material;
+	@InitByDeserialization public final byte data;
 
 
 	/*

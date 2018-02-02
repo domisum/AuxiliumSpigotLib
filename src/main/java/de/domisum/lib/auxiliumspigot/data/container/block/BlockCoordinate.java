@@ -1,6 +1,6 @@
 package de.domisum.lib.auxiliumspigot.data.container.block;
 
-import de.domisum.lib.auxilium.data.container.dir.Direction2D;
+import de.domisum.lib.auxilium.data.container.direction.Direction2D;
 import de.domisum.lib.auxilium.util.java.annotations.API;
 import org.bukkit.block.Block;
 

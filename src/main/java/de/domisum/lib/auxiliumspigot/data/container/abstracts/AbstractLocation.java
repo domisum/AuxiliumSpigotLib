@@ -3,7 +3,7 @@ package de.domisum.lib.auxiliumspigot.data.container.abstracts;
 import de.domisum.lib.auxilium.data.container.math.Vector3D;
 import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxilium.util.java.annotations.DeserializationNoArgsConstructor;
-import de.domisum.lib.auxilium.util.java.annotations.SetByDeserialization;
+import de.domisum.lib.auxilium.util.java.annotations.InitByDeserialization;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -13,14 +13,14 @@ public class AbstractLocation
 {
 
 	// GAME
-	@SetByDeserialization private String world;
+	@InitByDeserialization private String world;
 
-	@SetByDeserialization private double x;
-	@SetByDeserialization private double y;
-	@SetByDeserialization private double z;
+	@InitByDeserialization private double x;
+	@InitByDeserialization private double y;
+	@InitByDeserialization private double z;
 
-	@SetByDeserialization private float yaw;
-	@SetByDeserialization private float pitch;
+	@InitByDeserialization private float yaw;
+	@InitByDeserialization private float pitch;
 
 
 	// INIT

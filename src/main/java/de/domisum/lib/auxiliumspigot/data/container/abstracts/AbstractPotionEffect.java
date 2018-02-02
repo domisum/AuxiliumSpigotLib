@@ -2,7 +2,7 @@ package de.domisum.lib.auxiliumspigot.data.container.abstracts;
 
 import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxilium.util.java.annotations.DeserializationNoArgsConstructor;
-import de.domisum.lib.auxilium.util.java.annotations.SetByDeserialization;
+import de.domisum.lib.auxilium.util.java.annotations.InitByDeserialization;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -12,9 +12,9 @@ public class AbstractPotionEffect
 {
 
 	// PROPERTIES
-	@SetByDeserialization private String type;
-	@SetByDeserialization private int amplifier;
-	@SetByDeserialization private int duration;
+	@InitByDeserialization private String type;
+	@InitByDeserialization private int amplifier;
+	@InitByDeserialization private int duration;
 
 	// STATUS
 	private PotionEffectType type_;

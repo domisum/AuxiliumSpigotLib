@@ -2,7 +2,7 @@ package de.domisum.lib.auxiliumspigot.data.container.abstracts;
 
 import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxilium.util.java.annotations.DeserializationNoArgsConstructor;
-import de.domisum.lib.auxilium.util.java.annotations.SetByDeserialization;
+import de.domisum.lib.auxilium.util.java.annotations.InitByDeserialization;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -18,14 +18,14 @@ public class AbstractItemStack
 {
 
 	// GAME
-	@SetByDeserialization private Material material;
-	@SetByDeserialization private int amount;
-	@SetByDeserialization private short durability;
+	@InitByDeserialization private Material material;
+	@InitByDeserialization private int amount;
+	@InitByDeserialization private short durability;
 
-	@SetByDeserialization private String displayName;
-	@SetByDeserialization private List<String> lore;
+	@InitByDeserialization private String displayName;
+	@InitByDeserialization private List<String> lore;
 
-	@SetByDeserialization private AbstractPotionEffect potionEffect;
+	@InitByDeserialization private AbstractPotionEffect potionEffect;
 
 
 	// INIT

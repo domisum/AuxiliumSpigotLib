@@ -1,6 +1,6 @@
 package de.domisum.lib.auxiliumspigot.data.container.block;
 
-import de.domisum.lib.auxilium.data.container.dir.Axis;
+import de.domisum.lib.auxilium.data.container.direction.Axis;
 import de.domisum.lib.auxilium.util.java.annotations.API;
 
 @API

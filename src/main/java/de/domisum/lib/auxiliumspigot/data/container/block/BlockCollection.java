@@ -1,6 +1,6 @@
 package de.domisum.lib.auxiliumspigot.data.container.block;
 
-import de.domisum.lib.auxilium.data.container.Duo;
+import de.domisum.lib.auxilium.data.container.tuple.Duo;
 import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxiliumspigot.data.container.abstracts.AbstractBlock;
 import de.domisum.lib.auxiliumspigot.util.BlockUtil;
@@ -55,7 +55,7 @@ public class BlockCollection
 	}
 
 
-	@API public Duo<BlockCoordinate, BlockCoordinate> getBounds()
+	@API public Duo<BlockCoordinate> getBounds()
 	{
 		int minX = Integer.MAX_VALUE;
 		int minY = Integer.MAX_VALUE;
