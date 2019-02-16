@@ -4,8 +4,8 @@ import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxiliumspigot.AuxiliumSpigotLib;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftLivingEntity;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_13_R2.entity.CraftLivingEntity;
+import org.bukkit.craftbukkit.v1_13_R2.entity.CraftPlayer;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,10 +23,10 @@ public class PlayerCausedExplosion implements Listener
 	private static PlayerCausedExplosion listener;
 	private static Player currentPlayer;
 
-	private Player player;
+	private final Player player;
 
 	// PROPERTIES
-	private Location location;
+	private final Location location;
 
 	private double power = 4;
 	private boolean fire = false;
@@ -36,7 +36,8 @@ public class PlayerCausedExplosion implements Listener
 
 
 	// INIT
-	@API public PlayerCausedExplosion(Location location, Player player)
+	@API
+	public PlayerCausedExplosion(Location location, Player player)
 	{
 		this.location = location;
 
@@ -55,32 +56,37 @@ public class PlayerCausedExplosion implements Listener
 
 
 	// GETTERS
-	@API protected boolean shouldDamage(Entity entity)
+	@API
+	protected boolean shouldDamage(Entity entity)
 	{
 		return true;
 	}
 
 
 	// SETTERS
-	@API public PlayerCausedExplosion setPower(double power)
+	@API
+	public PlayerCausedExplosion setPower(double power)
 	{
 		this.power = power;
 		return this;
 	}
 
-	@API public PlayerCausedExplosion setFire(boolean fire)
+	@API
+	public PlayerCausedExplosion setFire(boolean fire)
 	{
 		this.fire = fire;
 		return this;
 	}
 
-	@API public PlayerCausedExplosion setBreakBlocks(boolean breakBlocks)
+	@API
+	public PlayerCausedExplosion setBreakBlocks(boolean breakBlocks)
 	{
 		this.breakBlocks = breakBlocks;
 		return this;
 	}
 
-	@API public PlayerCausedExplosion setDamageSelf(boolean damageSelf)
+	@API
+	public PlayerCausedExplosion setDamageSelf(boolean damageSelf)
 	{
 		this.damageSelf = damageSelf;
 		return this;
@@ -88,7 +94,8 @@ public class PlayerCausedExplosion implements Listener
 
 
 	// EXPLOSION
-	@API public void detonate()
+	@API
+	public void detonate()
 	{
 		Bukkit.getScheduler().runTask(AuxiliumSpigotLib.getPlugin(), this::detonateSync);
 	}
@@ -96,18 +103,17 @@ public class PlayerCausedExplosion implements Listener
 	private void detonateSync()
 	{
 		registerListener();
-		currentPlayer = this.player;
+		currentPlayer = player;
 
-		this.location.getWorld()
-				.createExplosion(this.location.getX(), this.location.getY(), this.location.getZ(), (float) this.power, this.fire,
-						this.breakBlocks);
+		location.getWorld().createExplosion(location.getX(), location.getY(), location.getZ(), (float) power, fire, breakBlocks);
 
 		currentPlayer = null;
 	}
 
 
 	// EVENTS
-	@EventHandler(priority = EventPriority.LOWEST) public void entityDeathByExplosion(EntityDeathEvent event)
+	@EventHandler(priority = EventPriority.LOWEST)
+	public void entityDeathByExplosion(EntityDeathEvent event)
 	{
 		if(currentPlayer == null)
 			return;
@@ -116,7 +122,8 @@ public class PlayerCausedExplosion implements Listener
 		((CraftLivingEntity) event.getEntity()).getHandle().killer = ((CraftPlayer) currentPlayer).getHandle();
 	}
 
-	@EventHandler(priority = EventPriority.LOWEST) public void entityDamageByExplosion(EntityDamageEvent event)
+	@EventHandler(priority = EventPriority.LOWEST)
+	public void entityDamageByExplosion(EntityDamageEvent event)
 	{
 		if(currentPlayer == null)
 			return;
@@ -124,7 +131,7 @@ public class PlayerCausedExplosion implements Listener
 		Entity entity = event.getEntity();
 
 		// prevent self damage if disabled
-		if(!this.damageSelf && currentPlayer.equals(entity))
+		if(!damageSelf && currentPlayer.equals(entity))
 			event.setCancelled(true);
 
 		if(!shouldDamage(entity))

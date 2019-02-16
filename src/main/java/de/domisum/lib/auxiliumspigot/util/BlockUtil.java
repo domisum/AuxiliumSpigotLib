@@ -26,7 +26,8 @@ public class BlockUtil
 	 * @param data     the subId
 	 * @see #setMaterialAndData(Block, Material, byte, boolean)
 	 */
-	@API public static void setMaterialAndData(Block block, Material material, byte data)
+	@API
+	public static void setMaterialAndData(Block block, Material material, byte data)
 	{
 		setMaterialAndData(block, material, data, false);
 	}
@@ -43,10 +44,13 @@ public class BlockUtil
 	 * @param data     the subId
 	 * @param physics  whether a physics update should be triggered
 	 */
-	@SuppressWarnings("deprecation") @API public static void setMaterialAndData(Block block, Material material, byte data,
-			boolean physics)
+	@SuppressWarnings("deprecation")
+	@API
+	public static void setMaterialAndData(
+			Block block, Material material, byte data, boolean physics)
 	{
-		block.setTypeIdAndData(material.getId(), data, physics);
+		// FIXME doesn't set data
+		block.setType(material, physics);
 	}
 
 }

@@ -25,7 +25,8 @@ public class AuxiliumSpigotLib
 		this.plugin = plugin;
 	}
 
-	@API public static void enable(Plugin plugin)
+	@API
+	public static void enable(Plugin plugin)
 	{
 		if(instance != null)
 			return;
@@ -34,7 +35,8 @@ public class AuxiliumSpigotLib
 		instance.onEnable();
 	}
 
-	@API public static void disable()
+	@API
+	public static void disable()
 	{
 		if(instance == null)
 			return;
@@ -58,7 +60,8 @@ public class AuxiliumSpigotLib
 
 
 	// GETTERS
-	@API public static AuxiliumSpigotLib getInstance()
+	@API
+	public static AuxiliumSpigotLib getInstance()
 	{
 		if(instance == null)
 			throw new IllegalArgumentException(AuxiliumSpigotLib.class.getSimpleName()+" has to be initialized before usage");

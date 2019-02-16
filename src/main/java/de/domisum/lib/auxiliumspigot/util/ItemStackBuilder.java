@@ -1,11 +1,11 @@
 package de.domisum.lib.auxiliumspigot.util;
 
 import de.domisum.lib.auxilium.util.java.annotations.API;
-import net.minecraft.server.v1_9_R1.NBTTagCompound;
-import net.minecraft.server.v1_9_R1.NBTTagList;
+import net.minecraft.server.v1_13_R2.NBTTagCompound;
+import net.minecraft.server.v1_13_R2.NBTTagList;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_9_R1.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_13_R2.inventory.CraftItemStack;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -51,7 +51,8 @@ public class ItemStackBuilder
 	 *
 	 * @param material the material
 	 */
-	@API public ItemStackBuilder(Material material)
+	@API
+	public ItemStackBuilder(Material material)
 	{
 		this.material = material;
 	}
@@ -62,7 +63,8 @@ public class ItemStackBuilder
 	 *
 	 * @param itemStack the ItemStack
 	 */
-	@API public ItemStackBuilder(ItemStack itemStack)
+	@API
+	public ItemStackBuilder(ItemStack itemStack)
 	{
 		// base values
 		this.material = itemStack.getType();
@@ -87,7 +89,7 @@ public class ItemStackBuilder
 		glow:
 		if(this.enchantments.size() == 0)
 		{
-			net.minecraft.server.v1_9_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
+			net.minecraft.server.v1_13_R2.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
 			if(!nmsStack.hasTag())
 				break glow;
 
@@ -114,7 +116,8 @@ public class ItemStackBuilder
 	 * @param material the material
 	 * @return this
 	 */
-	@API public ItemStackBuilder material(Material material)
+	@API
+	public ItemStackBuilder material(Material material)
 	{
 		this.material = material;
 
@@ -130,7 +133,8 @@ public class ItemStackBuilder
 	 * @param amount the amount
 	 * @return this
 	 */
-	@API public ItemStackBuilder amount(int amount)
+	@API
+	public ItemStackBuilder amount(int amount)
 	{
 		this.amount = amount;
 
@@ -147,7 +151,8 @@ public class ItemStackBuilder
 	 * @param durability the durability
 	 * @return this
 	 */
-	@API public ItemStackBuilder durability(int durability)
+	@API
+	public ItemStackBuilder durability(int durability)
 	{
 		this.durability = (short) durability;
 
@@ -168,7 +173,8 @@ public class ItemStackBuilder
 	 * @param displayName the displayName
 	 * @return this
 	 */
-	@API public ItemStackBuilder displayName(String displayName)
+	@API
+	public ItemStackBuilder displayName(String displayName)
 	{
 		this.displayName = ChatColor.WHITE+displayName;
 
@@ -190,7 +196,8 @@ public class ItemStackBuilder
 	 * @param loreArray varargs/array of lore line Strings
 	 * @return this
 	 */
-	@API public ItemStackBuilder lore(String... loreArray)
+	@API
+	public ItemStackBuilder lore(String... loreArray)
 	{
 		this.lore = processLore(new ArrayList<>(Arrays.asList(loreArray)));
 
@@ -202,7 +209,8 @@ public class ItemStackBuilder
 	 * @return this
 	 * @see #addLore(List)
 	 */
-	@API public ItemStackBuilder addLore(String... additionalLoreArray)
+	@API
+	public ItemStackBuilder addLore(String... additionalLoreArray)
 	{
 		return addLore(new ArrayList<>(Arrays.asList(additionalLoreArray)));
 	}
@@ -215,7 +223,8 @@ public class ItemStackBuilder
 	 * @param additionalLore the new lines to add to the lore
 	 * @return this
 	 */
-	@API public ItemStackBuilder addLore(List<String> additionalLore)
+	@API
+	public ItemStackBuilder addLore(List<String> additionalLore)
 	{
 		List<String> processedLore = processLore(additionalLore);
 
@@ -234,7 +243,8 @@ public class ItemStackBuilder
 	 * @param flags the flags
 	 * @return this
 	 */
-	@API public ItemStackBuilder flags(ItemFlag... flags)
+	@API
+	public ItemStackBuilder flags(ItemFlag... flags)
 	{
 		this.flags = flags;
 
@@ -257,7 +267,8 @@ public class ItemStackBuilder
 	 * @param level       the level of the enchantment
 	 * @return this
 	 */
-	@API public ItemStackBuilder enchantment(Enchantment enchantment, int level)
+	@API
+	public ItemStackBuilder enchantment(Enchantment enchantment, int level)
 	{
 		// TODO check if the level set here is the same ingame or if 0 here means I ingame
 		this.enchantments.put(enchantment, level);
@@ -275,7 +286,8 @@ public class ItemStackBuilder
 	 * @param glowing whether the ItemStackBuilder should glow
 	 * @return this
 	 */
-	@API public ItemStackBuilder glowing(boolean glowing)
+	@API
+	public ItemStackBuilder glowing(boolean glowing)
 	{
 		this.glowing = glowing;
 
@@ -293,7 +305,8 @@ public class ItemStackBuilder
 	 * @param skullOwner the name of the skullOwner
 	 * @return this
 	 */
-	@API public ItemStackBuilder skullOwner(String skullOwner)
+	@API
+	public ItemStackBuilder skullOwner(String skullOwner)
 	{
 		this.skullOwner = skullOwner;
 
@@ -318,7 +331,8 @@ public class ItemStackBuilder
 	 * @throws IllegalArgumentException if skullOwner is set (not null),
 	 *                                  but the material does not support SkullOwner
 	 */
-	@API public ItemStack build()
+	@API
+	public ItemStack build()
 	{
 		if(this.material == null)
 			throw new IllegalStateException("No material was specified for the itemstack");
@@ -359,9 +373,10 @@ public class ItemStackBuilder
 	 * @param itemStack the ItemStack to make glow
 	 * @return a glowing copy of the ItemStack
 	 */
-	@API protected static ItemStack makeGlow(ItemStack itemStack)
+	@API
+	protected static ItemStack makeGlow(ItemStack itemStack)
 	{
-		net.minecraft.server.v1_9_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
+		net.minecraft.server.v1_13_R2.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
 		NBTTagCompound tag = null;
 		if(!nmsStack.hasTag())
 		{

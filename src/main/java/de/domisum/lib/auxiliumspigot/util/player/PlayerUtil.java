@@ -2,10 +2,10 @@ package de.domisum.lib.auxiliumspigot.util.player;
 
 import de.domisum.lib.auxilium.util.java.annotations.API;
 import de.domisum.lib.auxiliumspigot.util.ReflectionUtil;
-import net.minecraft.server.v1_9_R1.EntityLiving;
-import net.minecraft.server.v1_9_R1.EntityPlayer;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftLivingEntity;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftPlayer;
+import net.minecraft.server.v1_13_R2.EntityLiving;
+import net.minecraft.server.v1_13_R2.EntityPlayer;
+import org.bukkit.craftbukkit.v1_13_R2.entity.CraftLivingEntity;
+import org.bukkit.craftbukkit.v1_13_R2.entity.CraftPlayer;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -23,7 +23,8 @@ public class PlayerUtil
 
 	// MANIPULATION
 	// inventory
-	@API public static void clear(Player player)
+	@API
+	public static void clear(Player player)
 	{
 		player.getInventory().clear();
 		player.getInventory().setArmorContents(null);
@@ -41,7 +42,8 @@ public class PlayerUtil
 		removeArrows(player);
 	}
 
-	@API public static void removeItemStacksFromInventory(Player player, Collection<ItemStack> itemStacksToRemove)
+	@API
+	public static void removeItemStacksFromInventory(Player player, Collection<ItemStack> itemStacksToRemove)
 	{
 		ItemStack[] contents = player.getInventory().getContents();
 		for(int i = 0; i < contents.length; i++)
@@ -63,7 +65,8 @@ public class PlayerUtil
 
 
 	// appearance
-	@API public static void removeArrows(Player player)
+	@API
+	public static void removeArrows(Player player)
 	{
 		// reflection makes this plugin compatible with multiple versions
 
@@ -87,7 +90,8 @@ public class PlayerUtil
 
 
 	// health and death status
-	@API public static void respawn(Player player)
+	@API
+	public static void respawn(Player player)
 	{
 		try
 		{
@@ -125,7 +129,8 @@ public class PlayerUtil
 		}
 	}
 
-	@API public static void heal(Player player, double health)
+	@API
+	public static void heal(Player player, double health)
 	{
 		if(health <= 0)
 			return;
@@ -138,12 +143,14 @@ public class PlayerUtil
 
 
 	// DAMAGING
-	@API public static void causeDamage(Player player, LivingEntity target, double damage)
+	@API
+	public static void causeDamage(Player player, LivingEntity target, double damage)
 	{
 		causeDamage(player, ((CraftLivingEntity) target).getHandle(), damage);
 	}
 
-	@API public static void causeDamage(Player player, EntityLiving target, double damage)
+	@API
+	public static void causeDamage(Player player, EntityLiving target, double damage)
 	{
 		// unsure if this works
 		// have to do this in this manner, because
