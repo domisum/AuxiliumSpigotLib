@@ -8,15 +8,17 @@ import org.bukkit.entity.Player;
 import java.util.logging.Level;
 
 @API
-public class DebugUtil
+public final class DebugUtil
 {
 
-	@API public static void say(Object message)
+	@API
+	public static void say(Object message)
 	{
 		say(message+"");
 	}
 
-	@API public static void say(String message)
+	@API
+	public static void say(String message)
 	{
 		String formattedMessage = "[DEBUG] "+message;
 
